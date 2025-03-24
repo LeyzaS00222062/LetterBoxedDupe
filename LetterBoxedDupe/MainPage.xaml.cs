@@ -1,25 +1,25 @@
-﻿namespace LetterBoxedDupe
+﻿using static System.Net.WebRequestMethods;
+
+namespace LetterBoxedDupe
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private const string API_KEY = "ec13022";
+        private const string API_URL = "https://www.omdbapi.com/";
 
-        public MainPage()
+        private Movie _movie; 
+
+        public MainPage(Movie movie)
         {
             InitializeComponent();
+            _movie = movie;
+            LoadMovieDetails();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
+        
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        
+        
     }
 
 }
