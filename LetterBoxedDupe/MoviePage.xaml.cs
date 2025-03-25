@@ -1,27 +1,38 @@
 using System.Collections.ObjectModel;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 
 namespace LetterBoxedDupe;
 
 public partial class MoviePage : ContentPage
 {
-    private ObservableCollection<string> _allItems;
-    private ObservableCollection<string> _filteredItems;
+    private const string API_KEY = "ec13022";
+    private const string API_URL = "https://www.omdbapi.com/";
 
-    public MoviePage(string searchTerm)
+    private Movie _movie;
+
+    public MoviePage(Movie movie)
 	{
 		InitializeComponent();
-
-        _allItems = new ObservableCollection<string>
-        {
-            {searchTerm}
-        };
+        _movie = movie;
+        LoadMovieDetails();
 
         
-        _filteredItems = new ObservableCollection<string>(
-            _allItems.Where(item => item.ToLower().Contains(searchTerm.ToLower()))
-        );
+    }
 
-        
-        resultsCollectionView.ItemsSource = _filteredItems;
+    private async void LoadMovieDetails()
+    {
+        using HttpClient client = new HttpClient();
+        string url = $"{API_URL}?i={_movie.OmdbID}&apikey={API_KEY}";
+        var response = await client.GetStringAsync(url);
+        var movieDetails = JsonSerializer.Deserialize<MovieDetails>(response);
+
+        MovieTitle.Text = movieDetails.Title;
+        MovieYear.Text = $"Released: {movieDetails.Year}";
+        MovieDescription.Text = movieDetails.Description;
+        MoviePoster.Source = movieDetails.Poster;
+
     }
 }

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace LetterBoxedDupe
 {
-    public class SearchMoviesResults
+    internal class MovieDetails
     {
-        public string Title { get; set; }
     }
 }

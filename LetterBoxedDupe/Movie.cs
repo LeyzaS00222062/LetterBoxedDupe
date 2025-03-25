@@ -8,25 +8,10 @@ namespace LetterBoxedDupe
 {
     public class Movie
     {
-        public string MovieTitle { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
-        public string PosterUrl { get; set; }
-
-        public List<string> Reviews { get; set; }
-
-        public Movie(string movietitle, string description, string posterUrl)
-        {
-            MovieTitle = movietitle;
-            Description = description;
-            PosterUrl = posterUrl;
-            Reviews = new List<string>();
-        }
-
-        public void AddReview(string review)
-        {
-            Reviews.Add(review);
-        }
-
+        public string Poster { get; set; }
+        public string OmdbID { get; set; }
 
     }
 }

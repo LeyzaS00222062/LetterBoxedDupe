@@ -1,6 +1,8 @@
-﻿using Microsoft.UI.Xaml.Media.Animation;
-using System.Collections.ObjectModel;
-using Windows.ApplicationModel.Search;
+﻿using System.Collections.ObjectModel;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 using static System.Net.WebRequestMethods;
 
 namespace LetterBoxedDupe
@@ -23,7 +25,7 @@ namespace LetterBoxedDupe
             string searchMovie = searchBarMovie.Text;
             if (string.IsNullOrEmpty(searchMovie))
             {
-               
+                await FetchMoviesFromApi(searchMovie);
 
             }
 
@@ -32,10 +34,33 @@ namespace LetterBoxedDupe
         private async Task FetchMoviesFromApi(string query)
         {
             using HttpClient client = new HttpClient();
+            string url = $"{API_URL}?s={query}&apikey={API_KEY}";
+            var response = await client.GetStringAsync(url);
+            var movieData = JsonSerializer.Deserialize<OmdbSearchResult>(response);
 
+            Movies.Clear();
+            if (movieData?.Search != null) 
+            {
+                foreach (var movie in movieData.Search)
+                {
+                    Movies.Add(movie);
+                }
+            }
+        }
+
+        private async void OnMovieSelected(object sender, SelectedPositionChangedEventArgs e)
+        {
+            if (e.SelectedPosition.LoadFromXaml() is Movie selectedMovie)
+            {
+                await Navigation.PushAsync(new MoviePage(selectedMovie));
+            }
         }
         
         
+    }
+    public class OmdbSearchResult
+    {
+        public List<Movie> Search { get; set; }
     }
 
 }
