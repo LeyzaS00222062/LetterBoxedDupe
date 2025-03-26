@@ -37,6 +37,6 @@ public partial class MoviePage : ContentPage
 
     private async void OnWriteReview(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ReviewPage(_movie));
+        await Navigation.PushModalAsync(new ReviewPage(_movie));
     }
 }

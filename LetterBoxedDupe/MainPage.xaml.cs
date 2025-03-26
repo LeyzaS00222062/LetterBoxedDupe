@@ -52,7 +52,7 @@ namespace LetterBoxedDupe
         {
             if (e.SelectedPosition is Movie selectedMovie)
             {
-                await Navigation.PushAsync(new MoviePage(selectedMovie));
+                await Navigation.PushModalAsync(new MoviePage(selectedMovie));
             }
         }
         
