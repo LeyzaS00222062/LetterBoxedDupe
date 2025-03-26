@@ -30,7 +30,6 @@
 
             <SearchBar
                 x:Name="searchBarMovie"
-                TextChanged="OnSearchTextChanged"
                 SearchButtonPressed="OnSearchMovies"
                 Placeholder="Search your Favourite Movie... "
                 PlaceholderColor="Purple"

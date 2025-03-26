@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LetterBoxedDupe.ReviewPage"
+	         Title="Review Page"
+	         BackgroundColor="LightGoldenrodYellow">
+    
+    <StackLayout 
+	    Padding="30,0"
+	    Spacing="25">
+        <Image
+            Source="letterboxedlogo.png"
+            HeightRequest="150"
+            Aspect="AspectFit"
+            SemanticProperties.Description="picture of film camera" 
+            />
+        <Label
+            Text="LetterXDupe"
+            TextColor="PaleVioletRed"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1" />
+        
+        <Label 
+            x:Name="MovieTitle" 
+            FontSize="24" 
+            FontAttributes="Bold"/>
+
+        <Entry 
+            x:Name="ReviewEntry" 
+            Placeholder="Write your review..." />
+        
+        <Button 
+            Text="Submit Review" 
+            Clicked="OnSubmitReview"/>
+
+        <Label Text="Reviews" 
+               FontSize="18" 
+               FontAttributes="Bold" 	
+               Margin="10,20,10,10"/>
+        
+        <ListView x:Name="ReviewList" />
+        
+    </StackLayout>
+</ContentPage>

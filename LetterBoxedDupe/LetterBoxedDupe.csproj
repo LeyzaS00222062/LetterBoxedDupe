@@ -63,12 +63,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="ReviewPage.xaml.cs">
+	    <DependentUpon>ReviewPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MoviePage.xaml.cs">
 	    <DependentUpon>MoviePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="ReviewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MoviePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

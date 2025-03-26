@@ -14,12 +14,11 @@ public partial class MoviePage : ContentPage
     private Movie _movie;
 
     public MoviePage(Movie movie)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _movie = movie;
         LoadMovieDetails();
 
-        
     }
 
     private async void LoadMovieDetails()
@@ -31,8 +30,13 @@ public partial class MoviePage : ContentPage
 
         MovieTitle.Text = movieDetails.Title;
         MovieYear.Text = $"Released: {movieDetails.Year}";
-        MovieDescription.Text = movieDetails.Description;
+        MovieDescription.Text = movieDetails.Plot;
         MoviePoster.Source = movieDetails.Poster;
 
+    }
+
+    private async void OnWriteReview(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ReviewPage(_movie));
     }
 }

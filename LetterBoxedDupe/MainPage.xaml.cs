@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
@@ -26,7 +27,6 @@ namespace LetterBoxedDupe
             if (string.IsNullOrEmpty(searchMovie))
             {
                 await FetchMoviesFromApi(searchMovie);
-
             }
 
 
@@ -50,17 +50,12 @@ namespace LetterBoxedDupe
 
         private async void OnMovieSelected(object sender, SelectedPositionChangedEventArgs e)
         {
-            if (e.SelectedPosition.LoadFromXaml() is Movie selectedMovie)
+            if (e.SelectedPosition is Movie selectedMovie)
             {
                 await Navigation.PushAsync(new MoviePage(selectedMovie));
             }
         }
         
-        
-    }
-    public class OmdbSearchResult
-    {
-        public List<Movie> Search { get; set; }
     }
 
 }

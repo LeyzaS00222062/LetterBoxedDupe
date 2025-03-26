@@ -21,12 +21,27 @@
              Style="{StaticResource Headline}"
              SemanticProperties.HeadingLevel="Level1" />
 
-
-            <Image x:Name="MoviePoster" HeightRequest="300"/>
-            <Label x:Name="MovieTitle" FontSize="24" FontAttributes="Bold"/>
-            <Label x:Name="MovieYear" FontSize="16" TextColor="Gray"/>
-            <Label x:Name="MovieDescription" FontSize="14"/>
-            <Button Text="Write a Review" Clicked="OnWriteReview"/>
+            <Image 
+                x:Name="MoviePoster" 
+                HeightRequest="300"/>
+            
+            <Label 
+                x:Name="MovieTitle" 
+                FontSize="24" 
+                FontAttributes="Bold"/>
+            
+            <Label 
+                x:Name="MovieYear" FontSize="16" 
+                TextColor="Gray"/>
+            
+            <Label 
+                x:Name="MovieDescription" 
+                FontSize="14"/>
+            
+            <Button 
+                Text="Write a Review" 
+                Clicked="OnWriteReview"/>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>
