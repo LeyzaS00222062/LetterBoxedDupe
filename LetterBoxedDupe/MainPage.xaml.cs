@@ -24,7 +24,7 @@ namespace LetterBoxedDupe
         private async void OnSearchMovies(object sender, EventArgs e)
         {
             string searchMovie = searchBarMovie.Text;
-            if (string.IsNullOrEmpty(searchMovie))
+            if (!string.IsNullOrEmpty(searchMovie))
             {
                 await FetchMoviesFromApi(searchMovie);
             }
@@ -48,9 +48,9 @@ namespace LetterBoxedDupe
             }
         }
 
-        private async void OnMovieSelected(object sender, SelectedPositionChangedEventArgs e)
+        private async void OnMovieSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedPosition is Movie selectedMovie)
+            if (e.SelectedItem is Movie selectedMovie)
             {
                 await Navigation.PushModalAsync(new MoviePage(selectedMovie));
             }
