@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using static System.Net.WebRequestMethods;
+using LetterBoxedDupe.Models;
 
 namespace LetterBoxedDupe
 {

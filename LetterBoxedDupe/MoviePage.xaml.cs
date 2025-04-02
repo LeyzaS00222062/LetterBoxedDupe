@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using LetterBoxedDupe.Models;
 using Microsoft.Maui.Controls;
 
 namespace LetterBoxedDupe;

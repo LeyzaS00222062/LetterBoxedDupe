@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using System.Collections.Generic;
+using LetterBoxedDupe.Models;
 
 namespace LetterBoxedDupe;
 
