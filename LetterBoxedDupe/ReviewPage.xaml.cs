@@ -10,15 +10,23 @@ namespace LetterBoxedDupe;
 
 public partial class ReviewPage : ContentPage
 {
-    private Movie _movie;
-    private static Dictionary<string, List<string>> Reviews = new Dictionary<string, List<string>>();
+    private readonly Movie _movie;
+    private static readonly Dictionary<string, List<string>> Reviews = new Dictionary<string, List<string>>();
 
     public ReviewPage(Movie movie)
     {
         InitializeComponent();
         _movie = movie;
-        MovieTitle.Text = movie.Title;
-        LoadReviews();
+        if (_movie.Title != null)
+        {
+            MovieTitle.Text = _movie.Title;
+            LoadReviews();
+        }
+        else
+        {
+            // Handle the case where the movie title is null
+            MovieTitle.Text = "Unknown Title";
+        }
     }
 
     private void OnSubmitReview(object sender, EventArgs e)
@@ -26,21 +34,29 @@ public partial class ReviewPage : ContentPage
         string review = ReviewEntry.Text;
         if (!string.IsNullOrEmpty(review))
         {
-            if (!Reviews.ContainsKey(_movie.Title))
+            if (_movie.Title != null)
             {
-                Reviews[_movie.Title] = new List<string>();
+                if (!Reviews.ContainsKey(_movie.Title))
+                {
+                    Reviews[_movie.Title] = new List<string>();
+                }
+                Reviews[_movie.Title].Add(review);
             }
-            Reviews[_movie.Title].Add(review);
             ReviewEntry.Text = "";
             LoadReviews();
         }
+        else { LoadReviews(); }
     }
 
     private void LoadReviews()
     {
-        if (Reviews.ContainsKey(_movie.Title))
+        if (_movie.Title != null && Reviews.TryGetValue(_movie.Title, out var movieReviews))
         {
             ReviewList.ItemsSource = Reviews[_movie.Title];
+        }
+        else 
+        {
+            ReviewList.ItemsSource = new List<string> { "No reviews" };
         }
     }
 

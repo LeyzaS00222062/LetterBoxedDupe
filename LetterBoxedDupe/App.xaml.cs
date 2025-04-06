@@ -5,19 +5,28 @@
         public App()
         {
             InitializeComponent();
-
-           // MainPage = new NavigationPage(new MainPage());
-        }
-        
-        protected override Window CreateWindow(IActivationState? activationState) 
-        {
-            return new Window(DetermineStartupPage());
+            MainPage = new MainPage();
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         }
 
-        private static Page DetermineStartupPage()
+        private void CurrentDomain_UnhandledException(object? sender, UnhandledExceptionEventArgs e)
         {
-            return new MainPage();
+            HandleException(e.ExceptionObject as Exception);
         }
-        
+
+        private void TaskScheduler_UnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
+        {
+            HandleException(e.Exception);
+            e.SetObserved();
+        }
+
+        private void HandleException(Exception? ex)
+        {
+            if (ex != null)
+            {
+                Console.WriteLine($"Unhandled exception: {ex.Message}");
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ public partial class MoviePage : ContentPage
     private const string API_KEY = "ec13022";
     private const string API_URL = "https://www.omdbapi.com/";
 
-    private Movie _movie;
+    private readonly Movie _movie;
 
     public MoviePage(Movie movie)
     {
@@ -29,10 +29,13 @@ public partial class MoviePage : ContentPage
         var response = await client.GetStringAsync(url);
         var movieDetails = JsonSerializer.Deserialize<MovieDetails>(response);
 
-        MovieTitle.Text = movieDetails.Title;
-        MovieYear.Text = $"Released: {movieDetails.Year}";
-        MovieDescription.Text = movieDetails.Plot;
-        MoviePoster.Source = movieDetails.Poster;
+        if (movieDetails != null)
+        {
+            MovieTitle.Text = movieDetails.Title ?? "Title not available";
+            MovieYear.Text = $"Released: {movieDetails.Year ?? "Year not available"}";
+            MovieDescription.Text = movieDetails.Plot ?? "Plot not available";
+            MoviePoster.Source = movieDetails.Poster ?? "default_poster.png";
+        }
 
     }
 

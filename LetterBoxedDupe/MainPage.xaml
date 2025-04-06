@@ -31,12 +31,11 @@
             <SearchBar
                 x:Name="searchBarMovie"
                 SearchButtonPressed="OnSearchMovies"
-                Placeholder="Search your Favourite Movie... "
+                Placeholder="Search your Favourite Movie..."
                 PlaceholderColor="Purple"
                 BackgroundColor="Goldenrod"
                 />
-            
-            
+                       
 
             <CollectionView ItemsSource="{Binding Movies}" SelectionChanged="OnMovieSelected">
                 <CollectionView.ItemTemplate>

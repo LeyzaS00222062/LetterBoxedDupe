@@ -14,9 +14,7 @@ namespace LetterBoxedDupe.Models
 
         public string? Plot;
 
-        public string? Poster;
-
-             
+        public string? Poster;         
 
     }
 }
