@@ -8,10 +8,13 @@ namespace LetterBoxedDupe.Models
 {
     public class Movie
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Poster { get; set; }
-        public string OmdbID { get; set; }
+        public string? Title;
+
+        public string? Description;
+
+        public string? Poster;
+
+        public string? OmdbID;
 
     }
 }

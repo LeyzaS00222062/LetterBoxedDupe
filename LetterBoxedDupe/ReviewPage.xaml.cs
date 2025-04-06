@@ -24,7 +24,7 @@ public partial class ReviewPage : ContentPage
     private void OnSubmitReview(object sender, EventArgs e)
     {
         string review = ReviewEntry.Text;
-        if (!string.IsNullOrWhiteSpace(review))
+        if (!string.IsNullOrEmpty(review))
         {
             if (!Reviews.ContainsKey(_movie.Title))
             {

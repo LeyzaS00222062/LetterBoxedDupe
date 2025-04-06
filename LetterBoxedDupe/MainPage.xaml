@@ -35,6 +35,8 @@
                 PlaceholderColor="Purple"
                 BackgroundColor="Goldenrod"
                 />
+            
+            
 
             <CollectionView ItemsSource="{Binding Movies}" SelectionChanged="OnMovieSelected">
                 <CollectionView.ItemTemplate>

@@ -9,6 +9,6 @@ namespace LetterBoxedDupe
 {
     public class OmdbSearchResult
     {
-        public List<Movie> Search { get; set; }
+        public List<Movie>? Search { get; set; }
     }
 }
