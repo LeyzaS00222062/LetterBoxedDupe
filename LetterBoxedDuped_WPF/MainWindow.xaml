@@ -1,0 +1,29 @@
+﻿<Window x:Class="LetterBoxedDuped_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LetterBoxedDuped_WPF"
+        mc:Ignorable="d"
+        Title="LetterBoxedDupe" Height="400" Width="800">
+    <Grid Margin="10">
+        <StackPanel>
+            <Image Source="/Assets/letterboxedlogo.png" Height="80" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+            <TextBox x:Name="SearchBx" Width="300" Height="30" Margin="5" Text="Enter Movie Title here..." />
+            <Button Content="Search" Click="Searchbtn_Click" Width="100" Margin="0,0,0,10"/>
+
+            <Image x:Name="PosterImage" Height="200" Stretch="Uniform" Margin="0,0,0,10"/>
+
+            <TextBlock x:Name="TitleBlock" FontWeight="Bold" FontSize="16" />
+            <TextBlock x:Name="YearBlock"/>
+            <TextBlock x:Name="GenreBlock"/>
+            <TextBlock x:Name="PlotBlock" TextWrapping="Wrap" Margin="0,5"/>
+            <TextBlock x:Name="RatingBlock" FontWeight="Bold" Margin="0,5"/>
+
+            <TextBox x:Name="ReviewBx" Height="60" TextWrapping="Wrap" AcceptsReturn="True" Text="Add Your review"/>
+            <Button Content="SubmitReview" Click="Submitbtn_Click" Width="120" />
+            
+        </StackPanel>       
+
+    </Grid>
+</Window>

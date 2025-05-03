@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetterBoxedDupe", "LetterBoxedDupe\LetterBoxedDupe.csproj", "{5436D96F-29A9-42E7-A6C8-2BF799EAA40E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetterBoxedDuped_WPF", "LetterBoxedDuped_WPF\LetterBoxedDuped_WPF.csproj", "{A5274897-3593-46E3-AF8A-CBA8C4347A04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{5436D96F-29A9-42E7-A6C8-2BF799EAA40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5436D96F-29A9-42E7-A6C8-2BF799EAA40E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5436D96F-29A9-42E7-A6C8-2BF799EAA40E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A5274897-3593-46E3-AF8A-CBA8C4347A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5274897-3593-46E3-AF8A-CBA8C4347A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5274897-3593-46E3-AF8A-CBA8C4347A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5274897-3593-46E3-AF8A-CBA8C4347A04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
