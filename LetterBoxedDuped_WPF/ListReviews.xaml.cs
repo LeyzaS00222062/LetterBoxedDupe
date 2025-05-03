@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace LetterBoxedDuped_WPF
 {
@@ -34,13 +35,28 @@ namespace LetterBoxedDuped_WPF
             using (var db = new ReviewDbContent())
             {
                 List<Reviews> reviews = db.Reviews.OrderByDescending(r => r.DateCreated).ToList();
+                if (reviews == null || !reviews.Any())
+                {
+                    HandleEmptyReviews();
+                }
                 ReviewsListBx.ItemsSource = reviews;
             }
         }
 
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        private void HandleEmptyReviews()
+        {
+            MessageBox.Show("No reviews found.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             _onBack?.Invoke();
+        }
+
+        public static bool DoesDatabaseExist()
+        {
+            string dbPath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "reviews.db");
+            return File.Exists(dbPath);
         }
     }
 }

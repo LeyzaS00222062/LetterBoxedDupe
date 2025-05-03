@@ -16,6 +16,7 @@ namespace LetterBoxedDuped_WPF
         {
             string dbPath = Path.Combine(Directory.GetCurrentDirectory(), "reviews.db");
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
+
         }
     }
 }

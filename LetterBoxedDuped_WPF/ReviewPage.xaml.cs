@@ -21,7 +21,7 @@ namespace LetterBoxedDuped_WPF
     public partial class ReviewPage : Page
     {
         private readonly Action _onBack;
-        public ReviewPage(string movieTitle, string PosterImage ,Action onBack)
+        public ReviewPage(string movieTitle, Action onBack)
         {
             InitializeComponent();
             MovieTitleBlck.Text = $"Review For the Movie: {movieTitle}";
@@ -36,6 +36,7 @@ namespace LetterBoxedDuped_WPF
             {
                 using (var db = new ReviewDbContent())
                 {
+                    db.Database.EnsureCreated();
                     db.Reviews.Add(new Reviews
                     {
                         MovieTitle = MovieTitleBlck.Text,

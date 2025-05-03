@@ -71,8 +71,7 @@ namespace LetterBoxedDuped_WPF
 
             ReviewFrame.Visibility = Visibility.Visible;
             MainGrid.Visibility = Visibility.Collapsed;
-            string posterUrl = PosterImage.Source != null ? ((BitmapImage)PosterImage.Source).UriSource.ToString() : "N/A";
-            ReviewFrame.Navigate(new ReviewPage(TitleBlock.Text, posterUrl ,CloseReviewPage));
+            ReviewFrame.Navigate(new ReviewPage(TitleBlock.Text,CloseReviewPage));
         }
         
         private void CloseReviewPage()
@@ -87,7 +86,12 @@ namespace LetterBoxedDuped_WPF
             PosterImage.Source = null;
         }
 
-
+        private void ToListReviews_Click(object sender, RoutedEventArgs e)
+        {
+            ReviewFrame.Visibility = Visibility.Visible;
+            MainGrid.Visibility = Visibility.Collapsed;
+            ReviewFrame.Navigate(new ListReviews(CloseReviewPage));
+        }
 
     }
 }
