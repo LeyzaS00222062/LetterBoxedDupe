@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:LetterBoxedDuped_WPF"
         mc:Ignorable="d"
         Title="LetterBoxedDupe" Height="400" Width="800">
-    <Grid Margin="10">
+    <Grid>
+        <Grid x:Name="MainGrid" Visibility="Visible" Margin="10">
         <StackPanel>
-            <Image Source="/Assets/letterboxedlogo.png" Height="80" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+            <Image Source="/Assets/letterboxedlogo.ico" Height="80" Margin="0,0,0,10" HorizontalAlignment="Center"/>
             <TextBox x:Name="SearchBx" Width="300" Height="30" Margin="5" Text="Enter Movie Title here..." />
-            <Button Content="Search" Click="Searchbtn_Click" Width="100" Margin="0,0,0,10"/>
+            <Button Content="Search" Click="SearchBtn_Click" Width="100" Margin="0,0,0,10"/>
 
             <Image x:Name="PosterImage" Height="200" Stretch="Uniform" Margin="0,0,0,10"/>
 
@@ -20,10 +21,24 @@
             <TextBlock x:Name="PlotBlock" TextWrapping="Wrap" Margin="0,5"/>
             <TextBlock x:Name="RatingBlock" FontWeight="Bold" Margin="0,5"/>
 
-            <TextBox x:Name="ReviewBx" Height="60" TextWrapping="Wrap" AcceptsReturn="True" Text="Add Your review"/>
-            <Button Content="SubmitReview" Click="Submitbtn_Click" Width="120" />
-            
-        </StackPanel>       
+            <ScrollViewer Height="120" HorizontalScrollBarVisibility="Auto" Margin="0,10">
+                <ItemsControl x:Name="ImageGallery">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Width="200" Height="112" Margin="5" Stretch="UniformToFill"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
 
+            <Button Content="Review" Click="ToReviewPage_Click" Width="150" Margin="0,10"/>
+        </StackPanel>
+        </Grid>
+        <Frame x:Name="ReviewFrame" Visibility="Collapsed" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
