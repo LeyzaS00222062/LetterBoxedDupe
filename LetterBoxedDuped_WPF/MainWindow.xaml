@@ -5,41 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LetterBoxedDuped_WPF"
         mc:Ignorable="d"
-        Title="LetterBoxedDupe" Height="800" Width="1000">
-    <Grid>
-        <Grid x:Name="MainGrid" Visibility="Visible" Margin="10">
-        <StackPanel>
+        Title="LetterBoxedDupe" Height="950" Width="1120"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <Style x:Key="BtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Background" Value="LightGoldenrodYellow"/>
+            <Setter Property="BorderBrush" Value="DarkMagenta"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Border Background="Lavender" CornerRadius="20" BorderThickness="3" BorderBrush="MediumPurple">
+        <Grid>
+
+            <Grid x:Name="MainGrid" Visibility="Visible" Margin="10">
+
+            <StackPanel>
+                    <Label HorizontalAlignment="Center" FontWeight="Bold" FontSize="28" Foreground="Purple">LetterBoxedDupe</Label>
             <Image Source="/Assets/letterboxedlogo.ico" Height="100" Margin="0,0,0,10" HorizontalAlignment="Center"/>
             <TextBox x:Name="SearchBx" Width="300" Height="30" Margin="5" Text="Enter Movie Title here..." />
-            <Button Content="Search" Click="SearchBtn_Click" Width="100" Margin="0,0,0,10"/>
+            <Button Content="Search" Click="SearchBtn_Click" Width="100" Margin="0,0,0,10" Style="{StaticResource BtnStyle}"/>
 
-            <Image x:Name="PosterImage" Height="200" Stretch="Uniform" Margin="0,0,0,10"/>
+            <Image x:Name="PosterImage" Height="350" Stretch="Uniform" Margin="0,0,0,10"/>
 
-            <TextBlock x:Name="TitleBlock" FontWeight="Bold" FontSize="16" />
-            <TextBlock x:Name="YearBlock"/>
-            <TextBlock x:Name="GenreBlock"/>
-            <TextBlock x:Name="PlotBlock" TextWrapping="Wrap" Margin="0,5"/>
-            <TextBlock x:Name="RatingBlock" FontWeight="Bold" Margin="0,5"/>
+            <TextBlock x:Name="TitleBlock" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" />
+            <TextBlock x:Name="YearBlock" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="GenreBlock" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="PlotBlock" TextWrapping="Wrap" Margin="0,5" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="RatingBlock" FontWeight="Bold" Margin="0,5" HorizontalAlignment="Center"/>
 
-            <ScrollViewer Height="120" HorizontalScrollBarVisibility="Auto" Margin="0,10">
-                <ItemsControl x:Name="ImageGallery">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Image Width="200" Height="112" Margin="5" Stretch="UniformToFill"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
-
-            <Button Content="Review" Click="ToReviewPage_Click" Width="150" Margin="0,10"/>
-                <Button Content="List Reviews" Click="ToListReviews_Click" Width="150" Margin="0,10"/>
+                    <ScrollViewer Height="120" HorizontalScrollBarVisibility="Auto" Margin="0,10">
+                        <ItemsControl x:Name="ImageGallery">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Width="200" Height="112" Margin="5" Stretch="UniformToFill"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                    <Button Content="Review" Click="ToReviewPage_Click" Width="150" Margin="0,10" Style="{StaticResource BtnStyle}"/>
+                <Button Content="List Reviews" Click="ToListReviews_Click" Width="150" Margin="0,10" Style="{StaticResource BtnStyle}"/>
             </StackPanel>
         </Grid>
         <Frame x:Name="ReviewFrame" Visibility="Collapsed" NavigationUIVisibility="Hidden"/>
     </Grid>
+    </Border>
 </Window>

@@ -7,11 +7,25 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1000"
       Title="ReviewPage">
+    <Page.Resources>
+        <Style x:Key="BtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Background" Value="LightGoldenrodYellow"/>
+            <Setter Property="BorderBrush" Value="DarkMagenta"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
 
     <StackPanel Margin="20">
         <TextBlock x:Name="MovieTitleBlck" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center" />
-        <TextBox x:Name="ReviewTextBx" Height="150" Width="500" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-        <Button  Content="Save Review" Click="SaveReview_Click" Width="120" Margin="0,0,0,10"/>
-        <Button Content="Back" Click="BackBtn_Click" Width="100" Margin="0,0,0,10"/>
+        <TextBox x:Name="ReviewTextBx" Height="150" Width="500" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0,10" HorizontalAlignment="Center" BorderBrush="MediumPurple" Background="LightGoldenrodYellow" />
+        <Button  Content="Save Review" Click="SaveReview_Click" Width="120" Margin="0,0,0,10" Style="{StaticResource BtnStyle}"/>
+        <Button Content="Back" Click="BackBtn_Click" Width="100" Margin="0,0,0,10" Style="{StaticResource BtnStyle}"/>
     </StackPanel>
 </Page>
