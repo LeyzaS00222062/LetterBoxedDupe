@@ -6,10 +6,7 @@
         xmlns:local="clr-namespace:LetterBoxedDuped_WPF"
         mc:Ignorable="d"
         Title="LetterBoxedDupe" Height="950" Width="1120"
-        WindowStyle="None"
-        ResizeMode="CanResize"
-        Background="Transparent"
-        AllowsTransparency="True">
+        Background="MediumPurple">
     <Window.Resources>
         <Style x:Key="BtnStyle" TargetType="{x:Type Button}">
             <Setter Property="Height" Value="20"/>
@@ -24,7 +21,7 @@
             </Style.Resources>
         </Style>
     </Window.Resources>
-    <Border Background="Lavender" CornerRadius="20" BorderThickness="3" BorderBrush="MediumPurple">
+    <Border Background="Lavender" CornerRadius="10" BorderThickness="3" BorderBrush="MediumPurple">
         <Grid>
 
             <Grid x:Name="MainGrid" Visibility="Visible" Margin="10">
