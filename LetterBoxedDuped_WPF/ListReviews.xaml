@@ -5,18 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetterBoxedDuped_WPF"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1000"
       Title="ListReviews">
 
     <StackPanel Margin="10">
         <TextBlock Text="Saved Reviews" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
 
-        <ListBox x:Name="ReviewsListBx" Height="350" Margin="0,0,0,10">
+        <ListBox x:Name="ReviewsListBx" Height="600" Margin="0,0,0,10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="5">
                         <StackPanel>
                             <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+                            <Image Source="{Binding Poster}" Height="100" Width="75" Margin="0,5,0,5"/>
                             <TextBlock Text="{Binding DateCreated}" FontStyle="Italic"/>
                             <TextBlock Text="{Binding Review}" TextWrapping="Wrap"/>
                         </StackPanel>

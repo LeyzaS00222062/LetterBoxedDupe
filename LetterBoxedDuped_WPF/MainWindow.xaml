@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LetterBoxedDuped_WPF"
         mc:Ignorable="d"
-        Title="LetterBoxedDupe" Height="400" Width="800">
+        Title="LetterBoxedDupe" Height="800" Width="1000">
     <Grid>
         <Grid x:Name="MainGrid" Visibility="Visible" Margin="10">
         <StackPanel>
